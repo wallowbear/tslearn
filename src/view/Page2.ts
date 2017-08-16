@@ -3,5 +3,9 @@ namespace view {
         constructor() {
             console.log("page2")
         }
+
+        public showPage(): void {
+            console.log("showpage father")
+        }
     }
 }
