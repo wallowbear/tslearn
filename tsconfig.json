@@ -3,7 +3,7 @@
     "module": "amd",
     "target": "es2015",
     "sourceMap": false,
-//   "outFile": "dist/main.js",
+   "outFile": "main.js",
     "outDir": "dist"
 //    "lib": ["es2015","es2015.iterable"]
   },
