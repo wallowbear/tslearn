@@ -27,6 +27,7 @@
     "fs": "^0.0.1-security",
     "glob": "^7.1.2",
     "gulp": "^3.9.1",
+    "gulp-sequence": "^0.4.6",
     "gulp-typescript": "^3.2.1",
     "path": "^0.12.7",
     "ts-loader": "^2.3.2",

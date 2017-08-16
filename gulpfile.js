@@ -2,6 +2,7 @@ var gulp = require("gulp");
 var ts = require("gulp-typescript");
 var tsProject = ts.createProject("tsconfig.json");
 var del=require('del');
+var gulpSequence = require('gulp-sequence');
 var paths = {
     pages: ['src/**/*.html','src/**/*.js']
 };
@@ -11,13 +12,14 @@ gulp.task("copy-html", function () {
         .pipe(gulp.dest("dist"));
 });
 gulp.task("clean",function(){
-
+    del(["dist/**/*"])
 })
-gulp.task("default",["clean","copy-html"], function () {
+gulp.task("tstojs",function(){
     return tsProject.src()
         .pipe(tsProject())
         .pipe(gulp.dest("dist"));
-});
+})
+gulp.task("default",gulpSequence("clean","copy-html","tstojs"));
 
 // var gulp = require("gulp");
 // var browserify = require("browserify");
