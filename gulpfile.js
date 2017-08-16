@@ -11,7 +11,7 @@ gulp.task("copy-html", function () {
         .pipe(gulp.dest("dist"));
 });
 gulp.task("clean",function(){
-
+    del(["dist"])
 })
 gulp.task("default",["clean","copy-html"], function () {
     return tsProject.src()
@@ -36,7 +36,7 @@ gulp.task("default",["clean","copy-html"], function () {
 //     return browserify({
 //         basedir: '.',
 //         debug: false,
-//         entries: ['src/main.ts',"src/view/Page1.ts","src/view/Page2.ts"],
+//         entries: ['src/main.ts', "src/view/Page1.ts", "src/view/Page2.ts"],
 //         cache: {},
 //         packageCache: {}
 //     })
