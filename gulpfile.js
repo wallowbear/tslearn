@@ -15,22 +15,28 @@ gulp.task("copy-html", function () {
 });
 gulp.task("clean",function(){
     del(["dist"])
-})
-gulp.task("concatAllFiles",function(){
+});
+gulp.task("concatLibFiles", function () {
+
+    return gulp.src(["libs/**/*.js"])
+    // .pipe(order(["dist/view/Page1.js","dist/view/Page2.js","dist/main.js"]))
+        .pipe(concat("libs.js"))
+        .pipe(gulp.dest("dist"))
+});
+gulp.task("concatPageFiles", function () {
 
     return gulp.src(["dist/**/*.js"])
-        .pipe(order(["dist/view/Page1.js","dist/view/Page2.js","dist/main.js"]))
-        .pipe(concat("all.js"))
+    // .pipe(order(["dist/view/Page1.js","dist/view/Page2.js","dist/main.js"]))
+        .pipe(concat("page.js"))
         .pipe(gulp.dest("dist"))
-})
-
+});
 gulp.task("outfile",function(){
     return tsProject.src()
         .pipe(tsProject())
         .pipe(gulp.dest("dist"));
-})
+});
 
-gulp.task("default",sequence(["clean","copy-html","outfile"],"concatAllFiles"));
+gulp.task("default", sequence("clean", "copy-html", "outfile", "concatLibFiles"));
 
 // var gulp = require("gulp");
 // var browserify = require("browserify");

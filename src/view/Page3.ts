@@ -4,7 +4,7 @@ namespace view {
             super();
             console.log("page3");
             this.showPage();
-
+            console.log($("body"));
         }
     }
 }
